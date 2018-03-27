@@ -1,0 +1,210 @@
+@import "mixin";
+
+// General Classes
+// max size
+.maxWidth {
+  width: 100%;
+}
+
+.maxHeight {
+  height: 100%;
+}
+
+.noHeight {
+  height: 0;
+}
+
+// float
+.fl {
+  .float(left);
+}
+
+.fr {
+  .float(right);
+}
+
+.clear {
+  .clear(both);
+}
+
+// Visibility
+.invisible {
+  .visibility(hidden, true);
+}
+
+// Display
+.hide {
+  .display(none, true);
+}
+
+.display-table {
+  .display(table, true);
+  .maxWidth;
+  .maxHeight;
+}
+
+.display-thead {
+  .display(table-header-group, true);
+  .maxWidth;
+}
+
+.display-tbody {
+  .display(table-row-group, true);
+  .maxWidth;
+}
+
+.display-tfoot {
+  .display(table-footer-group, true);
+  .maxWidth;
+}
+
+.display-tr {
+  .display(table-row, true);
+  .maxWidth;
+}
+
+.display-td {
+  .display(table-cell, true);
+  .vertical-top;
+}
+
+.display-block {
+  .display(block);
+}
+
+.display-inlineBlock {
+  .display(inline-block);
+}
+
+.display-flex {
+  .display(flex);
+}
+
+.display-inlineFlex {
+  .display(inline-flex);
+}
+
+// Overflow
+.overflow-hidden {
+  .overflow(hidden);
+}
+
+.overflow-auto {
+  .overflow(auto);
+};
+
+// Position
+.position-absolute {
+  .position(absolute);
+}
+
+.position-relative {
+  .position(relative);
+}
+
+.position-fixed {
+  .position(fixed);
+}
+
+// Box-sizing
+.contentBox {
+  .box-sizing(content-box);
+}
+
+.borderBox {
+  .box-sizing(border-box);
+}
+
+// Align
+.align-left {
+  .align(left);
+}
+
+.align-center {
+  .align(center);
+}
+
+.align-right {
+  .align(right);
+}
+
+.mar-c {
+  margin-left: auto;
+  margin-right: auto;
+};
+
+.vertical-top {
+  .vertical-align(top);
+}
+
+.vertical-middle {
+  .vertical-align(middle);
+}
+
+.vertical-baseline {
+  .vertical-align(baseline);
+}
+
+// Font
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.del {
+  text-decoration: line-through;
+}
+
+.small-cap {
+  font-variant: small-caps;
+}
+
+// Cursor
+.cursor-default {
+  .cursor(default, true);
+}
+
+.cursor-pointer {
+  .cursor(pointer);
+}
+
+// Misc
+.break {
+  padding: 0 .5em;
+}
+
+.columns-two {
+  .columns(2);
+}
+
+.columns-three {
+  .columns(3);
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
+.clearfix:after,
+.clearfix:before {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.text-ellipsis {
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.break-word {
+  word-break: break-word;
+}
