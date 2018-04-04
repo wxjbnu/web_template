@@ -16,22 +16,6 @@ export const apiActions = {
 		url: `${host}/api/store/items`,
 		method: 'POST'
 	},
-	createOrder: {
-		url: `${host}/api/store/order/create`,
-		method: 'POST'
-	},
-	pay: {
-		url: `${host}/api/store/pay/create`,
-		method: 'POST'
-	},
-
-	weixin: {
-		url: `${host}/api/weixin`,
-		method: 'POST'
-	}
-
-	
-	
 }
 export const apiv2 = {
 

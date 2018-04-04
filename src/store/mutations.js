@@ -1,10 +1,35 @@
 import Vue from 'vue'
 
 export default {
-	SET_GOODS_LIST(state, { data }) {
-		// 设置订单
-		console.log(data);
+	SET_LOCALSTORAGE(state, { data }) {
+		// 本地储存
+		// console.log(data);
 		
+		if (typeof data.value === 'object') {
+			localStorage.setItem(data.key, JSON.stringify(data.value))
+			localStorage.setItem(`${data.key}type`, 'object')
+		}else {
+			localStorage.setItem(data.key, data.value)
+			localStorage.setItem(`${data.key}type`, 'other')
+		}
+	},
+	GET_LOCALSTORAGE(state, { data }) {
+		// 本地储存
+		// console.log(data);
+		
+		const dtype = localStorage.getItem(`${data.key}type`)
+		const value = localStorage.getItem(data.key)
+		// console.log(dtype);
+		// console.log(value);
+		
+		if (dtype === 'object') {
+			return JSON.parse(value)
+		}else {
+			return value
+		}
+	},
+	SET_GOODS_LIST(state, { data }) {
+		// 设置订单		
 		state.goodsList.splice(0, state.goodsList.length)
 		for (let i = 0; i < data.length; i++) {
 			state.goodsList.push(data[i])
@@ -54,7 +79,7 @@ export default {
 	ADD_CART(state, { data }){
 		// 添加到购物车
 		let inCart = false
-console.log(data);
+// console.log(data);
 
 		for (const i in state.shopCart) {
 			if (state.shopCart[i].cid == data.cid && state.shopCart[i].id == data.id) {
@@ -67,10 +92,14 @@ console.log(data);
 			// Object.assign({}, data)
 			state.shopCart.push(Object.assign({}, data))
 		}
-		console.log(JSON.stringify(state.shopCart))
+		// console.log(JSON.stringify(state.shopCart))
 	},
 	SET_ORDER(state, { data }) {
 		// 设置订单
+		// console.log(data)
+		if (data.items) {
+			localStorage.setItem('orderList', JSON.stringify(data.items))
+		}
 		state.order = JSON.parse(JSON.stringify(data))
 	},
 	

@@ -3,12 +3,11 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-// const host = `http://192.168.197.28:18030`
-// const host = `http://192.168.197.42:18010`
-const host = `http://api.store.test.thinkinpower.net`
+const host = `http://api.crowdfunding.test.thinkinpower.net`
 
 module.exports = {
   dev: {
+
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -19,13 +18,12 @@ module.exports = {
 				pathRewrite: {
 					'^/api': '/api'
 				},
-				// xfwd:true,
       },
-
     },
+
     // Various Dev Server settings
     host: '192.168.197.40', // can be overwritten by process.env.HOST
-    port: 8096, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8047, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

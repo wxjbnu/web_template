@@ -5,25 +5,16 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
-// import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
+import { sync } from 'vuex-router-sync'
 
-
-// Vue.use(ElementUI)
-Vue.use(MintUI)
 
 Vue.config.productionTip = false
+const unsync = sync(store, router)
 
-// 获取当前环境
-store.commit('GET_USERAGENT', {})
-// 在微信里面需要注入jssdk
-// if (store.state.userAgent === 'weChat') {
-//   store.dispatch('initWeixin')
-// }
+router.beforeEach((to, from, next) => {
+  next()
+})
 
-// store.commit('GET_USERAGENT')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

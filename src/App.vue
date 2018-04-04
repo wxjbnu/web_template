@@ -1,5 +1,6 @@
 <template>
-  <div id="store">
+  <div id="app">
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
@@ -11,38 +12,24 @@ export default {
 </script>
 
 <style lang="less">
-@import "./assets/less/base.less";
-@import "./assets/less/style.less";
 html, body{
   height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 40px;
+  font-size: 16px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#store {
-  height: 100%;
-  /* text-align: center; */
-  max-width: 640px;
-  margin: auto;
-  color: #2c3e50;
-  /* margin-top: 60px; */
-}
-@media screen and (min-width: 540px){
+@media screen and (min-width: 769px) {
   html, body{
     font-size: 60px;
   }
 }
-@media screen and(min-width: 420px) and (max-width: 540px) {
+@media screen and (max-width: 768px) {
   html, body{
-    font-size: 55px;
+    font-size: 60px;
   }
-}
-@media screen and(min-width: 360) and (max-width: 420px) {
-  html, body{
-    font-size: 50px;
-  }
+  
 }
 </style>

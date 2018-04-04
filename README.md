@@ -1,4 +1,4 @@
-# 21f_store
+# 21f_discovery
 
 > A Vue.js project
 
