@@ -5,8 +5,6 @@ import router from './../router'
 // import co from 'co'
 
 const actions = {
-
-
 	initToggle({ commit, dispatch, state }, apiAction) {
 		// commit(types.SET_API_TOGGLE_INIT, { apiAction })
 	},
