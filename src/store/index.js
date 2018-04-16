@@ -9,12 +9,6 @@ Vue.use(Vuex)
 
 const state = {
 	userAgent: '',
-
-	dateOptions: {
-		disabledDate(time) {
-			return time.getTime() < Date.now() - 24*60*60*1000
-		},
-	},
 }
 
 export default new Vuex.Store({
