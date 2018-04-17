@@ -1,106 +1,8 @@
 import Vue from 'vue'
 
 export default {
-	SET_LOCALSTORAGE(state, { data }) {
-		// 本地储存
-		// console.log(data);
-		
-		if (typeof data.value === 'object') {
-			localStorage.setItem(data.key, JSON.stringify(data.value))
-			localStorage.setItem(`${data.key}type`, 'object')
-		}else {
-			localStorage.setItem(data.key, data.value)
-			localStorage.setItem(`${data.key}type`, 'other')
-		}
-	},
-	GET_LOCALSTORAGE(state, { data }) {
-		// 本地储存
-		// console.log(data);
-		
-		const dtype = localStorage.getItem(`${data.key}type`)
-		const value = localStorage.getItem(data.key)
-		// console.log(dtype);
-		// console.log(value);
-		
-		if (dtype === 'object') {
-			return JSON.parse(value)
-		}else {
-			return value
-		}
-	},
-	SET_GOODS_LIST(state, { data }) {
-		// 设置订单		
-		state.goodsList.splice(0, state.goodsList.length)
-		for (let i = 0; i < data.length; i++) {
-			state.goodsList.push(data[i])
-		}
-	},
 	SET_GOODS_DETAIL(state, { data }) {
-		// 选择当前商品
-		// console.log(JSON.stringify(data))
 		state.goodsDetail = Object.assign({}, data)
-		// console.log(JSON.stringify(state.goodsDetail))
-	},
-	DEL_CART(state, { data }) {
-		// 删除购物车
-		const cartList = []
-		for (let index = 0; index < data.length; index++) {
-			cartList.push(state.shopCart[data[index]])
-		}
-		// console.log(JSON.stringify(cartList));
-		
-		// 先清空以前的
-		state.shopCart.splice(0, state.shopCart.length)
-
-		for (let index = 0; index < cartList.length; index++) {
-			state.shopCart.push(JSON.parse(JSON.stringify(cartList[index])))
-		}
-
-		// console.log(cartList);
-	},
-	EDIT_CART(state, { data }){
-		// 设置购物车商品数量
-		// console.log(data)
-		state.shopCart[data.index].ownNum = data.num
-	},
-	CHECK_CART(state, { data }){
-		// 购物车选择商品
-		// console.log(data)
-		state.shopCart[data.index].checked = data.checked
-	},
-	CHECK_ALL_CART(state, { data }){
-		// 全选购物车商品
-		// console.log(data)
-		for (const i in state.shopCart) {
-			state.shopCart[i].checked = data
-		}
-		// state.shopCart[data.index].checked = data.checked
-	},
-	ADD_CART(state, { data }){
-		// 添加到购物车
-		let inCart = false
-// console.log(data);
-
-		for (const i in state.shopCart) {
-			if (state.shopCart[i].cid == data.cid && state.shopCart[i].id == data.id) {
-				state.shopCart[i].ownNum += 1
-				state.shopCart[i].checked = true
-				inCart = true
-			}
-		}
-		if (!inCart) {
-			// Object.assign({}, data)
-			state.shopCart.push(Object.assign({}, data))
-		}
-		// console.log(JSON.stringify(state.shopCart))
-	},
-	SET_ORDER(state, { data }) {
-		// 设置订单
-		// console.log(data)
-		if (data.items) {
-			localStorage.setItem('orderList', JSON.stringify(data.items))
-		}
-		state.order = JSON.parse(JSON.stringify(data))
 	},
 	
 	GET_USERAGENT(state, { }) {
@@ -138,28 +40,6 @@ export default {
 			// H5
 			state.userAgent = 'H5'
 		}
-	},
-	
-
-
-//-------***********************************----------
-	SET_USERINFO(state, { data }) {
-		console.log(data);
-		state.userInfo = Object.assign({}, data)
-		// 设置机器的列表
-		// state.urlParams = urlParams
-	},
-	SET_DEVICE_EDIT(state, { data }) {
-		// 设置在编辑的机器
-		// state.urlParams = urlParams
-	},
-
-	SET_URL_PARAMS(state, { urlParams }) {
-		state.urlParams = urlParams
-	},
-	SET_CITY(state, { data }) {
-		state.cityList.list = Object.assign(state.cityList.list, data.list)
-		state.cityList.hascity = data.hascity
 	},
 
 }

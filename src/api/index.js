@@ -5,9 +5,6 @@ import store from '../store'
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 
-// const host = `http://192.168.197.28:18010`
-// const host = `http://web.dsp.test.thinkinpower.net`
-// const host = `http://192.168.197.42:18010`
 const host = ``
 
 export const apiActions = {

@@ -3,6 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+
 const host = `http://api.crowdfunding.test.thinkinpower.net`
 
 module.exports = {
